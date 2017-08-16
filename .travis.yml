@@ -5,6 +5,7 @@ before_install:
 - sudo apt-get -qq update
 - sudo apt-get install -y libsndfile1-dev
 - sudo apt-get install -y fftw3-dev
+- sudo apt-get install -y swi-prolog
 env:
   global:
   - secure: z5I4Ke41/YboDFMuovRYNO+agKDTFwaznvjW1chwY8o0nZRPI6ZUkrljtdDpq9REAUvLuloqdSFd5439haQLoobMzALPtnMOXq1nFdA0X0q02Ff7QO9HUU0XuYAjKc5GvX6qKqSiM3RqnPuKpVI+q9NYmNowDcKWnBztE9amx9MvI3SubDP7pb6vVaD0oQkGTV+lZnd4zWMleWhcyDbifIxbH9ay0+LKup7MplG5Lt7fW4IyRhVzt+z/iI6HjGoS6UceD2tyJMdDrVedn5lRd4wn95gSjNLNmVsPkvWhKVaoZqNiIzFmOeIZi15QVWziuj1Fj/Dx980Iz7Pzh/HLOK2AnaFKDhgrhEWhb7gxh9i2lEXrTmC4pquxVrAguPsh4Pwloz6PXLaNyJfTz9Ev3VOWeTZKyTXnIwl+vEXSRTSgAWfOFZVT44O+bp2GrqK7iIxps6ARu5aU6o8rht3aU7fOQ1bcVOnFYH8IynT3tUvyNDIEllvvQXdnY+7ZCwsQn0+2yM3K2PEy2BDrnyNQNnDdLmxva1+san42rR6yEI7H0CXW3DlIFfWHaZs2v4+rkZd7Cs/zRegrb8if/AamQHo9Fvjtq2O8BArRVEwD7C2w9aEnXlR2yMoaC0uU2joQIqsXeBcw8NHRGYFfM5eoxsbiRZIvyPXQ49wj6itsp1I=
