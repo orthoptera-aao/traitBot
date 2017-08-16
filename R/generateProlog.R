@@ -28,7 +28,7 @@ generateProlog <- function(c){
   taxa$parent_taxon <- gsub("'", '', taxa$parent_taxon)
   taxa$parent_taxon <- gsub("×", 'x', taxa$parent_taxon)
   taxa$parent_taxon <- gsub('\\?', 'question_', taxa$parent_taxon)
-  taxa <-mutate_each(taxa, funs(tolower))
+  taxa <-mutate_all(taxa, funs(tolower))
   traits$Taxonomic.name <- gsub(' ', '_', traits$Taxonomic.name)
   traits$Taxonomic.name <- gsub('-', '_', traits$Taxonomic.name)
   traits$Taxonomic.name <- gsub('\\(', '_', traits$Taxonomic.name)
@@ -43,7 +43,7 @@ generateProlog <- function(c){
   traits$Trait <- gsub(' ', '_', traits$Trait)
   traits$Value <- gsub(' ', '_', traits$Value)
   traits$Value <- gsub('-', '_', traits$Value)
-  traits <-mutate_each(traits, funs(tolower))
+  traits <-mutate_all(traits, funs(tolower))
   
   
   
