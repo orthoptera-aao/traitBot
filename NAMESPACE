@@ -1,2 +1,2 @@
 importFrom("bioacoustica", "bioacoustica.authenticate", "bioacoustica.listTaxa", "bioacoustica.listTraits")
-importFrom("dplyr", "mutate_all")
+importFrom("dplyr", "mutate_all","funs")
