@@ -1,0 +1,15 @@
+Package: traitBot
+Type: Package
+Title: todo
+Version: 0.1
+Date: 2017-08-16
+Authors@R: c(
+    person("Baker", "Ed", role = c("aut", "cre"),email ="ed.baker@york.ac.uk"))
+Author: Ed Baker
+Maintainer: Ed Baker <ed.baker@york.ac.uk>
+Description: Automatic trait calculations for BioAcoustica.
+License: GPL (>=3.0)
+Depends:
+    bioacousticaR
+Remotes:
+	BioAcoustica/bioacousticaR
