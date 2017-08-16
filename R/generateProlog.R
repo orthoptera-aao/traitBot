@@ -1,5 +1,5 @@
 generateProlog <- function(c){
-  taxa <- bioacoustica::bioacoustica.listTaxa(c);
+  taxa <- bioacoustica::bioacoustica.listTaxa();
   traits <- bioacoustica::bioacoustica.listTraits(c);
   #Only cascading traits
   traits <- traits[!is.na(traits$Cascade),]
