@@ -11,6 +11,7 @@ Description: Automatic trait calculations for BioAcoustica.
 License: GPL (>=3.0)
 Depends:
     bioacoustica,
-    dplyr
+    dplyr,
+    RCurl
 Remotes:
     orthoptera-aao/bioacousticaR

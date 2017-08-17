@@ -6,11 +6,15 @@
   if (remote==TRUE){
     c <- bioacoustica::bioacoustica.authenticate(Sys.getenv("BAUSR"), Sys.getenv("BAPWD"))
   } else {
-    source("~/authenticate.R")
+    source("~/authenticate.R", local=TRUE)
   }
+  message(class(c))
+  flush.console()
+  bioacoustica::bioacoustica.postTrait("Cooloola", c )
   
   #Generate prolog file for reasoning
   message("Generate Prolog")
+  flush.console()
   generateProlog(c)
   uploadFromProlog(c)
 }
