@@ -8,13 +8,6 @@
   } else {
     source("~/authenticate.R", local=TRUE)
   }
-  message(class(c))
-  flush.console()
-  bioacoustica::bioacoustica.postTrait("Cooloola", c )
-  
-  #Generate prolog file for reasoning
-  message("Generate Prolog")
-  flush.console()
   generateProlog(c)
   uploadFromProlog(c)
 }
