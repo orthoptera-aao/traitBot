@@ -5,7 +5,7 @@ uploadFromProlog <- function(c){
   n <- c(names(taxa), "orig_taxon", "orig_parent_taxon")
   orig_taxon <- taxa$taxon
   orig_parent_taxon <- taxa$parent_taxon
-  taxa <-dplyr::mutate_each(taxa, dplyr::funs(tolower))
+  taxa <-dplyr::mutate_all(taxa, dplyr::funs(tolower))
   taxa <- cbind(taxa, orig_taxon, orig_parent_taxon)
   names(taxa) <- n
   
@@ -41,7 +41,6 @@ uploadFromProlog <- function(c){
     cascade_trait <- paste0("t", cascade_traits[j,"traitID"])
     message(cascade_trait)
     for (i in 1:nrow(taxa)) {
-      message(".")
       #If trait already set for this taxon then skip
       if (nrow(subset(subset(all_traits, Taxonomic.name==as.character(taxa[i,"orig_taxon"])), Trait==as.character(cascade_traits[j,"Trait"]))) > 0) {
         next;
@@ -51,11 +50,13 @@ uploadFromProlog <- function(c){
         next;
       }
       pl_taxon <- taxa[i,"taxon"]
-      r <- system2("swipl", paste0("-s ~/orth.pl -- --taxon=",pl_taxon," --trait=",cascade_trait), stdout=TRUE)
+      
+      #Pipe output through cat to supress warning when no match found and swipl returns with code 2
+      r <- system2("swipl", paste0("-s ~/orth.pl -- --taxon=",pl_taxon," --trait=",cascade_trait, " | cat"), stdout=TRUE)
       if (r[length(r)]!="no_match_found") {
-        notes <- paste0("Inferred by ", user, " from value assigned to ",as.character(cascade_traits[j,"Taxonomic.name"]))
+        notes <- paste0("Inferred by inference_bot from value assigned to ",as.character(cascade_traits[j,"Taxonomic.name"]))
         message(paste0(as.character(cascade_traits[j, "Value"]), " inferred by inference_bot from value assigned to ",as.character(cascade_traits[j,"Taxonomic.name"])))
-        bioacoustica::bioacoustica.postTrait( as.character(taxa[i,"orig_taxon"]), 
+        bioacoustica.postTrait( as.character(taxa[i,"orig_taxon"]), 
                                 c, 
                                 call_type=as.character(cascade_traits[j,"Call.Type"]), 
                                 trait=as.character(cascade_traits[j, "Trait"]), 

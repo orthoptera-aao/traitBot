@@ -2,7 +2,7 @@
 # The package runs code when it is loaded to facilitate automatic operation
 # Seting remote to FALSE allows local operation
 .onLoad <- function(libname, pkgname){
-  remote <- TRUE
+  remote <- FALSE
   if (remote==TRUE){
     c <- bioacoustica::bioacoustica.authenticate(Sys.getenv("BAUSR"), Sys.getenv("BAPWD"))
   } else {
@@ -10,5 +10,7 @@
   }
   
   #Generate prolog file for reasoning
+  message("Generate Prolog")
   generateProlog(c)
+  uploadFromProlog(c)
 }
