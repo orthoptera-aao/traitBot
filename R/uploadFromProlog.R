@@ -56,7 +56,7 @@ uploadFromProlog <- function(c){
       if (r[length(r)]!="no_match_found") {
         notes <- paste0("Inferred by inference_bot from value assigned to ",as.character(cascade_traits[j,"Taxonomic.name"]))
         message(paste0(as.character(cascade_traits[j, "Value"]), " inferred by inference_bot from value assigned to ",as.character(cascade_traits[j,"Taxonomic.name"])))
-        bioacoustica.postTrait( as.character(taxa[i,"orig_taxon"]), 
+        bioacoustica::bioacoustica.postTrait( as.character(taxa[i,"orig_taxon"]), 
                                 c, 
                                 call_type=as.character(cascade_traits[j,"Call.Type"]), 
                                 trait=as.character(cascade_traits[j, "Trait"]), 
