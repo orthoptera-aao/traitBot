@@ -35,11 +35,9 @@ uploadFromProlog <- function(c){
   all_traits <- bioacoustica::bioacoustica.listTraits(c)
   cascade_traits <- all_traits[!is.na(all_traits$Cascade),]
   cascade_traits <- cascade_traits[cascade_traits$Cascade==1,]
-  message("OK TO HERE")
   
   for (j in 1:nrow(cascade_traits)) {
     cascade_trait <- paste0("t", cascade_traits[j,"traitID"])
-    message(cascade_trait)
     for (i in 1:nrow(taxa)) {
       #If trait already set for this taxon then skip
       if (nrow(subset(subset(all_traits, Taxonomic.name==as.character(taxa[i,"orig_taxon"])), Trait==as.character(cascade_traits[j,"Trait"]))) > 0) {
@@ -55,7 +53,7 @@ uploadFromProlog <- function(c){
       r <- system2("swipl", paste0("-s ~/orth.pl -- --taxon=",pl_taxon," --trait=",cascade_trait, " | cat"), stdout=TRUE)
       if (r[length(r)]!="no_match_found") {
         notes <- paste0("Inferred by inference_bot from value assigned to ",as.character(cascade_traits[j,"Taxonomic.name"]))
-        message(paste0(as.character(cascade_traits[j, "Value"]), " inferred by inference_bot from value assigned to ",as.character(cascade_traits[j,"Taxonomic.name"])))
+        #message(paste0(as.character(cascade_traits[j, "Value"]), " inferred by inference_bot from value assigned to ",as.character(cascade_traits[j,"Taxonomic.name"])))
         bioacoustica::bioacoustica.postTrait( as.character(taxa[i,"orig_taxon"]), 
                                 c, 
                                 call_type=as.character(cascade_traits[j,"Call.Type"]), 
@@ -66,7 +64,6 @@ uploadFromProlog <- function(c){
                                 inference_notes=notes, 
                                 cascade=0)
       }
-      
     }
   }
 }

@@ -1,4 +1,5 @@
 downloadAnnotations <- function(c) {
-  a <- bioacoustica.getAnnotations()
-  bioacoustica.getAnnotationFile(a)
+  setwd("./data")
+  bioacoustica.getAllAnnotationFiles(c)
+  setwd("..")
 }
