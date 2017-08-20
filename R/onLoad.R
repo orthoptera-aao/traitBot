@@ -1,8 +1,6 @@
 # Seting remote to FALSE allows local operation
 .onLoad <- function(libname, pkgname){
-  library(devtools)
   setwd("~")
-  
   remote <- TRUE
   if (remote==TRUE){
     c <- bioacoustica::bioacoustica.authenticate(Sys.getenv("BAUSR"), Sys.getenv("BAPWD"))
