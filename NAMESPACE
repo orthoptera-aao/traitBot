@@ -1,5 +1,3 @@
 importFrom("bioacoustica", "bioacoustica.authenticate", "bioacoustica.listTaxa", "bioacoustica.listTraits")
 importFrom("dplyr", "mutate_all","funs")
-importFrom("tuneR", "readWave")
-importFrom("orthophonia", "frequencySpectrumAAO")
 import(RCurl)

@@ -2,7 +2,7 @@
 .onLoad <- function(libname, pkgname){
   setwd("~")
   remote <- TRUE
-  if (remote==FALSE){
+  if (remote==TRUE){
     c <- bioacoustica::bioacoustica.authenticate(Sys.getenv("BAUSR"), Sys.getenv("BAPWD"))
     generateProlog(c)
   } else {
