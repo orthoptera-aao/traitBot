@@ -10,8 +10,10 @@ Maintainer: Ed Baker <ed.baker@york.ac.uk>
 Description: Automatic trait calculations for BioAcoustica.
 License: GPL (>=3.0)
 Depends:
+    RCurl,
     bioacoustica,
     dplyr,
-    RCurl
+    orthophonia
 Remotes:
     orthoptera-aao/bioacousticaR
+    orthoptera-aao/orthophonia
