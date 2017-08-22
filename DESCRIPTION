@@ -13,7 +13,8 @@ Depends:
     bioacoustica,
     dplyr,
     orthophonia,
-    tuneR
+    tuneR,
+    seewave
 Remotes:
     orthoptera-aao/bioacousticaR,
     orthoptera-aao/orthophonia

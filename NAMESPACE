@@ -2,3 +2,5 @@ importFrom("bioacoustica", "bioacoustica.authenticate", "bioacoustica.listTaxa",
 importFrom("dplyr", "mutate_all","funs")
 importFrom("tuneR", "readWave")
 importFrom("orthophonia", "frequencySpectrumAAO")
+importFrom("seewave", "bwfilter")
+importFrom("utils", "URLdecode")
